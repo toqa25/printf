@@ -5,14 +5,15 @@ int _printf(const char *format, ...)
 {
 	va_list argu;
 	va_start(argu, format);
-	
+
 	int char_no = 0;
-	
+
 	while (*format)
-       	{
-		if (*format == '%') {
+	{
+		if (*format == '%') 
+		{
 			format++;
-			if (*format == '\0') break;
+			if (*format == '\0') 
 			if (*format == '%') 
 			{
 				putchar('%');
