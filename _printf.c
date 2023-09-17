@@ -49,7 +49,7 @@ int _printf(const char *format, ...)
 				printf("%d", num);
 				char_no += snprintf(NULL, 0, "%d", num);
 			}
-        } else {
+		       	else {
 		putchar(*format);
 		char_no++;
 	}
