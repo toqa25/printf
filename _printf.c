@@ -1,33 +1,43 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-int _printf(const char *format, ...) {
-    va_list argu;
-    va_start(argu, format);
-
-    int char_no = 0;
-
-    while (*format) {
-        if (*format == '%') {
-            format++;
-            if (*format == '\0') break;
-            if (*format == '%') {
-                putchar('%');
-                char_no++;
-            } else if (*format == 'c') {
-                char c = va_arg(argu int);
-                putchar(c);
-                char_no++;
-            } else if (*format == 's') {
-                char *str = va_arg(argu, char *);
-                if (str != NULL) {
-                    while (*str) {
-                        putchar(*str);
-                        str++;
-                        char_no++;
-                    }
-                }
-            } else if (*format == 'i' || *format == 'd') {
+int _printf(const char *format, ...)
+{
+	va_list argu;
+	va_start(argu, format);
+	
+	int char_no = 0;
+	
+	while (*format)
+       	{
+		if (*format == '%') {
+			format++;
+			if (*format == '\0') break;
+			if (*format == '%') 
+			{
+				putchar('%');
+				char_no++;
+			} 
+			else if (*format == 'c')
+		       	{
+				char c = va_arg(argu int);
+				putchar(c);
+				char_no++;
+			}
+			else if (*format == 's')
+			{
+				char *str = va_arg(argu, char *);
+				if (str != NULl)
+				{
+					while (*str) 
+					{
+						putchar(*str);
+						str++;
+						char_no++;
+					}
+				}
+            } 
+			else if (*format == 'i' || *format == 'd') {
                 int num = va_arg(argu, int);
                 printf("%d", num);
                 char_no += snprintf(NULL, 0, "%d", num);
