@@ -23,7 +23,7 @@ char_no++; }
 else if (*format == 'c')
 {char c = va_arg(argu, int);
 putchar(c);
-char_no++;}
+char_no++; }
 else if (*format == 's')
 {char *s = va_arg(argu, char *);
 while (*s)
