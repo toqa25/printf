@@ -12,19 +12,20 @@
 */
 struct at
 {
-        char *at
-        int (*fu)(va_list, char, int , int)
+        char *at;
+        int (*fu)(va_list, char, int , int, int);
 };
 /**
  * typedef struct at at_t - struct ap
  * @at:the format
  * @at_t:the functions
 */
-typedef struct at at_t
+typedef struct at at_t;
 int _printf(const char *format, ...);
-int print_char(va_list argu)
-int print_string(va_list argu)
-int print_precent(va_list argu)
-int print_int(va_list argu)
+int print_char(va_list argu, ...);
+int print_string(va_list argu, ...);
+int print_precent(va_list argu, ...);
+int print_int(va_list argu, ...);
+int _putchar(char c);
 
 #endif
