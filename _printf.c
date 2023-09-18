@@ -2,7 +2,7 @@
 /**
  *  _printf- print variables
  *  @format: char
- *  Return: 0 Always
+ *  Return:  printed char
 */
 int _printf(const char *format, ...)
 {va_list argu;
@@ -33,7 +33,8 @@ car_no++;
 else
 {putchar(*format);
 car_no++; }
-format++; }
+format++; }}
 va_end(argu);
 return (car_no);
 }
+}}
