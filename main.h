@@ -13,7 +13,7 @@
 struct at
 {
 	char *at;
-	int (*fu)(va_list, char, int, int, int);
+	int (*fu)(va_list argu);
 };
 /**
  * typedef struct at at_t - struct ap
@@ -22,10 +22,10 @@ struct at
 */
 typedef struct at at_t;
 int _printf(const char *format, ...);
-int print_char(va_list argu, ...);
-int print_string(va_list argu, ...);
-int print_precent(va_list argu, ...);
-int print_int(va_list argu, ...);
+int print_char(va_list argu);
+int print_string(va_list argu);
+int print_precent(va_list argu);
+int print_int(va_list argu);
 int _putchar(char c);
 
 #endif
