@@ -12,8 +12,8 @@
 */
 struct at
 {
-        char *at;
-        int (*fu)(va_list, char, int , int, int);
+	char *at;
+	int (*fu)(va_list, char, int, int, int);
 };
 /**
  * typedef struct at at_t - struct ap
