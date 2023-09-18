@@ -2,7 +2,7 @@
 /**
  *  _printf- print variables
  *  @format: char
- *  Return 0
+ *  Return: 0 Always
 */
 int _printf(const char *format, ...)
 {va_list argu;
