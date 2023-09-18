@@ -6,9 +6,8 @@
 */
 int _printf(const char *format, ...)
 {va_list argu;
-va_start(argu, format);
 int car_no = 0;
-
+va_start(argu, format);
 if (format == NULL)
 {
 	return (-1);
