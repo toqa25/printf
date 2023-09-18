@@ -37,4 +37,3 @@ format++; }}
 va_end(argu);
 return (car_no);
 }
-}}
