@@ -21,6 +21,7 @@ struct at
  * @at:the format
  * @at_t:the functions
 */
+
 typedef struct at at_t;
 int _printf(const char *format, ...);
 int print_char(va_list argu);
