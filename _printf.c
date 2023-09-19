@@ -12,29 +12,29 @@ while (*format)
 {
 if (*format == '\0')
 {
-	return (-1);
-}
+return (-1); }
 va_start(argu, format);
 if (*format == '%')
 {
-	format++;
-}
-if (*format == '%')
-{putchar('%');
+format++; }
+else
+{ write(1, format, 1);
 num++; }
-else if (*format == 'c')
+if (*format == 'c')
 {a = va_arg(argu, int);
-putchar(a);
+write(1, &a, 1);
 num++; }
 if (*format == 's')
-{char *s = va_arg(argu, char*);
-putchar(*s);
+{char *s = va_arg(argu, char *);
+while (*s)
+{write(1, s, 1);
 s++;
-num++; }
-else
-{putchar(*format);
-num += 2; }
+num++; } }
+else if (*format == '%')
+{write(1, format, 1);
+}
+num += 2;
 format++; }
 va_end(argu);
-return (num);
+return (num); 
 }
