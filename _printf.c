@@ -12,7 +12,7 @@ int _printf(const char * const format, ...)
 	};
 
 	va_list args;
-	int a= 0, b, len = 0;
+	int a = 0, b, len = 0;
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
@@ -20,8 +20,8 @@ int _printf(const char * const format, ...)
 Here:
 	while (format[a] != '\0')
 	{
-		b= 13;
-		while (b >= 0)
+		b = 13;
+		while (b > = 0)
 		{
 			if (m[b].id[0] == format[a] && m[b].id[1] == format[a + 1])
 			{
