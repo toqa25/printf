@@ -1,35 +1,40 @@
 #include "main.h"
 /**
- *  _printf- print variables
- *  @format: char
- *  Return:  printed char
-*/
-int _printf(const char *format, ...)
+ * _printf - is a function that selects the correct function to print.
+ * @format: identifier to look for.
+ * Return: the length of the string.
+ */
+int _printf(const char * const format, ...)
 {
-va_list argu;
-int num = 0, a, b = 0;
-va_start(argu, format);
+	convert_match m[] = {
+		{"%s", printf_string}, {"%c", printf_char},
+		{"%%", printf_37},
+	};
 
-if (*format[0] == '%' && format[1] == '\0') || (*format == NULL)
-{
-return (-1); }
-while (format[num] != '\0')
-{
-	a = 13;
-	while (a >= 0)
+	va_list args;
+	int a= 0, b, len = 0;
+
+	va_start(args, format);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
+Here:
+	while (format[a] != '\0')
 	{
-
-if (m[a].at[0] == format [num] && m[a].at[1] == format[num + 1])
-{
-b = b + m[a].f(argu);
-num = num + 2;
-}
-a--;
-}
-_putchar(format[num]);
-b++;
-a++;
-}
-va_end(argu);
-return (b); 
+		b= 13;
+		while (b >= 0)
+		{
+			if (m[b].id[0] == format[a] && m[b].id[1] == format[a + 1])
+			{
+				len += m[b].f(args);
+				a = a + 2;
+				goto Here;
+			}
+			b--;
+		}
+		_putchar(format[a]);
+		len++;
+		a++;
+	}
+	va_end(args);
+	return (len);
 }
