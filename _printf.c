@@ -9,25 +9,31 @@ int _printf(const char *format, ...)
 {
 	int p = 0;
 
-	va_list args;
+	va_list argu;
 
-	va_start(args, format);
-
-	while (*format != '\0')
-	{
-		if (*format == '%')
+		if (format == NULL)
 		{
-			format++;
-			p = write(format, args, p);
-			format++;
+			return (-1);
 		}
+		va_start(argu, format);
+		while (*format)
+		{
+			if (*format == '%')
+			{
+				format++;
+			}
 		else
 		{
-			_putchar(*format);
+			_putchar(*format + '0');
 			p++;
-			format++;
 		}
-	}
-	va_end(args);
+		if (*format == '\0')
+		{
+			break;
+		}
+		p += 2;
+		}
+		p++;
+	va_end(argu);
 	return (p);
 }
