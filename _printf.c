@@ -8,7 +8,10 @@ int _printf(const char *format, ...)
 {va_list argu;
 int car_no = 0;
 va_start(argu, format);
-
+if (*format == NULL)
+{
+	return (-1)
+}
 while (*format)
 {
 if (*format == '%')
