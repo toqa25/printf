@@ -1,17 +1,16 @@
 #include "main.h"
-
 /**
  * _printf - print variables
  * @format:char
  * Return: printed char
  */
 int _printf(const char *format, ...)
-{va_list argu;
+{
+va_list argu;
 int car_no = 0;
 va_start(argu, format);
 if (format == NULL)
-{
-	return (-1);
+{return (-1); 
 }
 while (*format)
 {
@@ -30,11 +29,11 @@ while (*s)
 {putchar(*s);
 s++;
 car_no++;
-}}
+}
 else
 {putchar(*format);
 car_no++; }
 format++; }
-va_end(argu);
-return (car_no);
+va_end(argu);}
+return (car_no); }
 }
