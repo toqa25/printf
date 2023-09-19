@@ -5,35 +5,36 @@
  *  Return:  printed char
 */
 int _printf(const char *format, ...)
-{va_list argu;
-int car_no = 0;
-va_start(argu, format);
-if (*format == NULL)
 {
-	return (-1)
-}
+va_list argu;
+int num = 0, a;
 while (*format)
 {
+if (*format == '\0')
+{
+	return (-1);
+}
+va_start(argu, format);
 if (*format == '%')
-{format++;
+{
+	format++;
+}
 if (*format == '%')
 {putchar('%');
-car_no++; }
+num++; }
 else if (*format == 'c')
-{char c = va_arg(argu, int);
-putchar(c);
-car_no++; }
-else if (*format == 's')
-{char *s = va_arg(argu, char *);
-while (*s)
-{putchar(*s);
+{a = va_arg(argu, int);
+putchar(a);
+num++; }
+if (*format == 's')
+{char *s = va_arg(argu, char*);
+putchar(*s);
 s++;
-car_no++;
-}}
+num++; }
 else
 {putchar(*format);
-car_no++; }
-format++; }}
+num += 2; }
+format++; }
 va_end(argu);
-return (car_no);
+return (num);
 }
