@@ -27,6 +27,5 @@ int print_char(va_list argu);
 int print_string(va_list argu);
 int print_precent(va_list argu);
 int print_int(va_list argu);
-int _putchar(char c);
 
 #endif
