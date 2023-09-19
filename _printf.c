@@ -7,34 +7,29 @@
 int _printf(const char *format, ...)
 {
 va_list argu;
-int num = 0, a;
-while (*format)
-{
-if (*format == '\0')
+int num = 0, a, b = 0;
+va_start(argu, format);
+
+if (*format[0] == '%' && format[1] == '\0') || (*format == NULL)
 {
 return (-1); }
-va_start(argu, format);
-if (*format == '%')
+while (format[num] != '\0')
 {
-format++; }
-else
-{ write(1, format, 1);
-num++; }
-if (*format == 'c')
-{a = va_arg(argu, int);
-write(1, &a, 1);
-num++; }
-if (*format == 's')
-{char *s = va_arg(argu, char *);
-while (*s)
-{write(1, s, 1);
-s++;
-num++; } }
-else if (*format == '%')
-{write(1, format, 1);
+	a = 13;
+	while (a >= 0)
+	{
+
+if (m[a].at[0] == format [num] && m[a].at[1] == format[num + 1])
+{
+b = b + m[a].f(argu);
+num = num + 2;
 }
-num += 2;
-format++; }
+a--;
+}
+_putchar(format[num]);
+b++;
+a++;
+}
 va_end(argu);
-return (num); 
+return (b); 
 }
